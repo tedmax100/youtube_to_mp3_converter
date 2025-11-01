@@ -36,16 +36,25 @@ func main() {
 
 	// 下載並轉換為 MP3
 	fmt.Println("正在下載並轉換...")
+	fmt.Println("(大文件轉換可能需要幾分鐘，請耐心等待...)")
+
 	if err := dl.Download(youtubeURL); err != nil {
-		fmt.Printf("錯誤: %v\n", err)
+		fmt.Printf("\n錯誤: %v\n", err)
 		os.Exit(1)
 	}
 
+	fmt.Println("\n轉換完成！正在查找輸出文件...")
+
 	// 顯示輸出文件
 	files, err := dl.GetOutputFiles()
-	if err == nil && len(files) > 0 {
-		fmt.Printf("\nMP3 文件已保存到: %s\n", files[len(files)-1])
+	if err != nil {
+		fmt.Printf("警告: 無法查找輸出文件: %v\n", err)
+	} else if len(files) > 0 {
+		fmt.Printf("\n成功！MP3 文件已保存到: %s\n", files[len(files)-1])
+	} else {
+		fmt.Println("警告: 未找到輸出文件，但轉換過程已完成")
+		fmt.Printf("請檢查 %s 目錄\n", cfg.OutputDir)
 	}
 
-	fmt.Println("\n完成！")
+	fmt.Println("\n✓ 全部完成！")
 }

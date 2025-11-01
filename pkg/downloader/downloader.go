@@ -63,6 +63,9 @@ func (d *YtDlpDownloader) buildArgs(url string) []string {
 		"--audio-format", d.config.AudioFormat,
 		"--audio-quality", d.config.AudioQuality,
 		"--postprocessor-args", fmt.Sprintf("ffmpeg:-b:a %s", d.config.Bitrate),
+		"--progress",    // 顯示進度
+		"--newline",     // 每個進度在新行顯示
+		"--no-playlist", // 只下載單個視頻，不下載播放列表
 		"-o", d.config.OutputTemplate,
 		url,
 	}
