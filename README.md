@@ -1,8 +1,8 @@
 # YouTube 轉 MP3 工具
 
-[![CI](https://github.com/YOUR_USERNAME/youtube_to_mp3/workflows/CI/badge.svg)](https://github.com/YOUR_USERNAME/youtube_to_mp3/actions)
-[![Go Report Card](https://goreportcard.com/badge/github.com/YOUR_USERNAME/youtube_to_mp3)](https://goreportcard.com/report/github.com/YOUR_USERNAME/youtube_to_mp3)
-[![codecov](https://codecov.io/gh/YOUR_USERNAME/youtube_to_mp3/branch/main/graph/badge.svg)](https://codecov.io/gh/YOUR_USERNAME/youtube_to_mp3)
+[![CI](https://github.com/tedmax100/youtube_to_mp3_converter/workflows/CI/badge.svg)](https://github.com/tedmax100/youtube_to_mp3_converter/actions)
+[![Go Report Card](https://goreportcard.com/badge/tedmax100.com/YOUR_USERNAME/youtube_to_mp3_converter)](https://goreportcard.com/report/github.com/tedmax100/youtube_to_mp3_converter)
+[![codecov](https://codecov.io/github/tedmax100/youtube_to_mp3_converter/graph/badge.svg?token=P2LMJCD94F)](https://codecov.io/github/tedmax100/youtube_to_mp3_converter)
 
 這是一個用 Go 編寫的工具，可以從 YouTube 下載視頻並轉換為高品質 MP3 格式（320kbps）。
 
