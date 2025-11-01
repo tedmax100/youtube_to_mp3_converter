@@ -52,10 +52,10 @@ func (m *CommandExecutor) Execute(name string, args []string, stdout, stderr io.
 
 // Downloader 模擬下載器
 type Downloader struct {
-	DownloadFunc     func(url string) error
-	GetOutputFunc    func() ([]string, error)
-	DownloadedURLs   []string
-	ShouldFailOnURL  string
+	DownloadFunc    func(url string) error
+	GetOutputFunc   func() ([]string, error)
+	DownloadedURLs  []string
+	ShouldFailOnURL string
 }
 
 // Download 模擬下載
