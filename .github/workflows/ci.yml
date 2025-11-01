@@ -90,7 +90,7 @@ jobs:
       run: go build -v -o youtube_to_mp3 .
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: youtube_to_mp3-linux
         path: youtube_to_mp3
