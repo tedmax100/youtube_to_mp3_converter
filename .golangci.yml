@@ -1,0 +1,58 @@
+linters-settings:
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+  govet:
+    check-shadowing: true
+  gocyclo:
+    min-complexity: 15
+  dupl:
+    threshold: 100
+  goconst:
+    min-len: 3
+    min-occurrences: 3
+  misspell:
+    locale: US
+  lll:
+    line-length: 120
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - performance
+      - style
+    disabled-checks:
+      - commentedOutCode
+
+linters:
+  disable-all: true
+  enable:
+    - errcheck      # 檢查錯誤處理
+    - gosimple      # 簡化程式碼建議
+    - govet         # Go 官方檢查工具
+    - ineffassign   # 檢查無效賦值
+    - staticcheck   # 靜態分析
+    - typecheck     # 類型檢查
+    - unused        # 檢查未使用的程式碼
+    - gofmt         # 格式化檢查
+    - goimports     # import 檢查
+    - misspell      # 拼寫檢查
+    - goconst       # 檢查可以提取為常量的字串
+    - gocyclo       # 檢查函數複雜度
+    - dupl          # 檢查重複程式碼
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  exclude-rules:
+    # 排除測試文件的某些檢查
+    - path: _test\.go
+      linters:
+        - dupl
+        - goconst
+        - gocyclo
+
+run:
+  timeout: 5m
+  tests: true
+  modules-download-mode: readonly

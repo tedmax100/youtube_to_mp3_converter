@@ -13,6 +13,10 @@ youtube_to_mp3
 *.test
 *.out
 
+# 測試覆蓋率
+coverage.out
+coverage.html
+
 # IDE 配置
 .vscode/
 .idea/

@@ -1,5 +1,9 @@
 # YouTube 轉 MP3 工具
 
+[![CI](https://github.com/YOUR_USERNAME/youtube_to_mp3/workflows/CI/badge.svg)](https://github.com/YOUR_USERNAME/youtube_to_mp3/actions)
+[![Go Report Card](https://goreportcard.com/badge/github.com/YOUR_USERNAME/youtube_to_mp3)](https://goreportcard.com/report/github.com/YOUR_USERNAME/youtube_to_mp3)
+[![codecov](https://codecov.io/gh/YOUR_USERNAME/youtube_to_mp3/branch/main/graph/badge.svg)](https://codecov.io/gh/YOUR_USERNAME/youtube_to_mp3)
+
 這是一個用 Go 編寫的工具，可以從 YouTube 下載視頻並轉換為高品質 MP3 格式（320kbps）。
 
 ## 功能特點
@@ -166,7 +170,7 @@ make test
 # 運行單元測試（詳細模式）
 make test-unit
 
-# 運行集成測試（需要 yt-dlp 和 ffmpeg）
+# 運行E2E測試（需要 yt-dlp 和 ffmpeg）
 make test-integration
 
 # 運行所有測試（包括集成測試）
@@ -260,6 +264,68 @@ mockExecutor := &MockCommandExecutor{
 }
 downloader := NewYtDlpDownloader(cfg, mockExecutor)
 ```
+
+## CI/CD
+
+本項目使用 GitHub Actions 進行持續集成和測試。
+
+### GitHub Actions 工作流
+
+項目包含以下 CI 工作流（`.github/workflows/ci.yml`）：
+
+1. **測試（Test）**
+   - 在多個 Go 版本（1.20, 1.21, 1.22）上運行
+   - 執行所有單元測試
+   - 生成測試覆蓋率報告
+   - 上傳覆蓋率到 Codecov
+
+2. **代碼檢查（Lint）**
+   - 使用 golangci-lint 進行代碼質量檢查
+   - 檢查代碼風格、潛在錯誤和最佳實踐
+
+3. **構建（Build）**
+   - 編譯程序確保無編譯錯誤
+   - 上傳build artifacts
+
+### 觸發條件
+
+CI 會在以下情況自動運行：
+- 推送到 `main`、`master` 或 `develop` 分支
+- 創建 Pull Request 到這些分支
+
+### 本地運行 CI 檢查
+
+在提交程式碼前，你可以在local運行相同的檢查：
+
+```bash
+# 運行測試
+make test
+
+# 運行 linter
+make lint
+
+# 生成覆蓋率報告
+make test-coverage
+
+# 構建程序
+make build
+```
+
+### 配置 Badge
+
+將 README 中的 `YOUR_USERNAME` 替換為你的 GitHub 用戶名：
+
+```markdown
+[![CI](https://github.com/tedmax100/youtube_to_mp3/workflows/CI/badge.svg)](https://github.com/tedmax100/youtube_to_mp3/actions)
+```
+
+### Codecov 設置（可選）
+
+如果想使用 Codecov 追蹤測試覆蓋率：
+
+1. 在 [codecov.io](https://codecov.io) 註冊並連接你的 GitHub 倉庫
+2. Codecov 會自動接收 GitHub Actions 上傳的覆蓋率報告
+3. 無需額外配置 token（對於公開倉庫）
 
 ## 技術細節
 
