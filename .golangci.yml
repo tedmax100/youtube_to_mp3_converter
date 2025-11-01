@@ -3,7 +3,8 @@ linters-settings:
     check-type-assertions: true
     check-blank: true
   govet:
-    check-shadowing: true
+    enable:
+      - shadow
   gocyclo:
     min-complexity: 15
   dupl:
