@@ -15,6 +15,7 @@ youtube_to_mp3
 
 # 測試覆蓋率
 coverage.out
+coverage.txt
 coverage.html
 
 # IDE 配置

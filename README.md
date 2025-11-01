@@ -229,7 +229,7 @@ make test-integration
 make test-coverage
 
 # 這將生成：
-# - coverage.out (覆蓋率數據)
+# - coverage.txt (覆蓋率數據)
 # - coverage.html (HTML 格式報告)
 ```
 

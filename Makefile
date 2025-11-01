@@ -32,8 +32,8 @@ test-integration:
 # 生成測試覆蓋率報告
 test-coverage:
 	@echo "生成測試覆蓋率報告..."
-	go test -v -coverprofile=coverage.out ./pkg/...
-	go tool cover -html=coverage.out -o coverage.html
+	go test -v -coverprofile=coverage.txt ./pkg/...
+	go tool cover -html=coverage.txt -o coverage.html
 	@echo "覆蓋率報告已生成: coverage.html"
 
 # 詳細模式測試
@@ -67,7 +67,7 @@ endif
 clean:
 	@echo "清理文件..."
 	rm -f youtube_to_mp3
-	rm -f coverage.out coverage.html
+	rm -f coverage.out coverage.txt coverage.html
 	rm -rf output/
 	@echo "清理完成"
 
